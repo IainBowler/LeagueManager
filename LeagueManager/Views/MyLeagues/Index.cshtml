@@ -1,0 +1,22 @@
+﻿@model IEnumerable<LeagueManager.Models.League>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            <h2>My Leagues</h2>
+        </th>
+        <th style="vertical-align: middle; text-align: right">
+            @Html.ActionLink("Manage Teams", "ViewSides")
+        </th>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Create New League", "CreateLeague")
+</p>
+
+@{Html.RenderPartial("~/Views/Shared/_ViewLeagues.cshtml", Model); }

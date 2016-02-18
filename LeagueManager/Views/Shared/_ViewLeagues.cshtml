@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LeagueManager.Models.League>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("League Name")
+        </th>
+        <th>
+            @Html.Label("Description")
+        </th>
+        <th>
+            @Html.Label("Team Names")
+        </th>
+        <th align="center">
+            @Html.Label("Points for a Win")
+        </th>
+        <th align="center">
+            @Html.Label("Points for a Draw")
+        </th>
+        <th align="center">
+            @Html.Label("Points for a Loss")
+        </th>
+        <th align="center">
+            @Html.Label("Public")
+        </th>
+        @if (HttpContext.Current.User.IsInRole("Admin") == true)
+        {
+            <th>
+                @Html.Label("Owner")
+            </th>
+        }
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "ViewLeagueTable", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @foreach (LeagueManager.Models.Side s in item.Members)
+                {
+                    <p>
+                        @Html.DisplayFor(modelItem => s.Name)
+                    </p>
+                }
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.PointsForAWin)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.PointsForADraw)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.PointsForALoss)
+            </td>
+            <td align="center">
+                @Html.CheckBoxFor(modelItem => item.Public)
+            </td>
+            @if (HttpContext.Current.User.IsInRole("Admin") == true)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.OwnerName)
+                </td>
+            }
+            <td>
+                @Html.ActionLink("Edit", "EditLeague", new { id = item.Id }) |
+                @Html.ActionLink("Details", "LeagueDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteLeague", new { id = item.Id }) |
+                @Html.ActionLink("Add Match", "CreateMatch", new { id = item.Id }) |
+                @Html.ActionLink("Add New Side", "AddNewSideToLeague", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

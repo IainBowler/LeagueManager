@@ -1,0 +1,68 @@
+﻿@model LeagueManager.Models.EditLeagueMembersViewModel
+
+@{
+    ViewBag.Title = "EditLeagueMembers";
+}
+
+<h2>Edit Members of @Model.League.Name</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Team Name")
+        </th>
+        <th>
+            <!-- Column for Add Button -->
+        </th>
+        <th>
+            <!-- Column for Remove Button -->
+        </th>
+        <th>
+            <!-- Column for Warning message -->
+        </th>
+    </tr>
+
+    @foreach (LeagueManager.Models.SideMatchLeagueInfo smi in Model.SideInfo)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => smi.Side.Name)
+            </td>
+            <td>
+                @if(smi.IsInLeague == false)
+                {
+                    @Html.ActionLink("Add", "AddSideToLeague", new { LeagueId = smi.LeagueId, SideId = smi.Side.Id }, new { @class="btn btn-default" })
+                }
+            </td>
+            <td>
+                @if(smi.IsInLeague == true)
+                {
+                    @Html.ActionLink("Remove", "RemoveSideFromLeague", new { LeagueId = smi.LeagueId, SideId = smi.Side.Id }, new { @class = "btn btn-default" })
+                }
+            </td>
+            <td>
+                @if(smi.IsInLeague == true)
+                {
+                    if(smi.noOfMatches == 1)
+                    {
+                        <p>
+                            Removing this Team will delete 1 match.
+                        </p>
+                    }
+                    if(smi.noOfMatches > 1)
+                    {
+                        <p>
+                            Removing this Team will delete @smi.noOfMatches.ToString() matches.
+                        </p>
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Back to League Edit", "EditLeague", new { id = Model.League.Id})
+</div>
+

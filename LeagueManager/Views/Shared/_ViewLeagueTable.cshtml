@@ -1,0 +1,80 @@
+﻿@model LeagueManager.Models.LeagueResults
+
+<table class="table">
+    <tr>
+        <th>
+            <h2>@Model.LeagueName</h2>
+        </th>
+        <th style="vertical-align: middle; text-align: right">
+            @Html.ActionLink("View Matches", "ViewLeagueMatches", new { id = Model.LeagueId })
+        </th>
+    </tr>
+</table>
+<h3>@Model.LeagueDescription</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Team Name")
+        </th>
+        <th>
+            @Html.Label("Games Played")
+        </th>
+        <th>
+            @Html.Label("Games Won")
+        </th>
+        <th>
+            @Html.Label("Games Drawn")
+        </th>
+        <th>
+            @Html.Label("Games Lost")
+        </th>
+        <th>
+            @Html.Label("Goals For")
+        </th>
+        <th>
+            @Html.Label("Goals Against")
+        </th>
+        <th>
+            @Html.Label("Goal Difference")
+        </th>
+        <th>
+            @Html.Label("Points")
+        </th>
+
+    </tr>
+
+    @foreach (LeagueManager.Models.SideResults item in Model.Results)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SideName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesWon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesDrawn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesLost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreAgainst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreDifference)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+        </tr>
+    }
+
+</table>

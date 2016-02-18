@@ -1,0 +1,38 @@
+﻿@model LeagueManager.Models.League
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+@if (ViewBag.noOfMatches == 1)
+{
+    <p>
+        Warning deleting this League will also delete the match in the League.
+    </p>
+}
+
+@if (ViewBag.noOfMatches > 1)
+{
+    <p>
+        Warning deleting this League will also delete the @ViewBag.noOfMatches matches in the League.
+    </p>
+}
+
+<div>
+
+    @{Html.RenderPartial("~/Views/Shared/_LeagueDetails.cshtml", Model); }
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

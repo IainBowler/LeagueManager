@@ -1,0 +1,26 @@
+﻿@model LeagueManager.Models.Side
+
+@{
+    ViewBag.Title = "ConfirmSideAndMatchesDelete";
+}
+
+<h2>Confirm Delete of @Model.Name</h2>
+
+@Html.HiddenFor(model => model.Id)
+
+<div>
+    <p>
+        This Side has @ViewBag.noOfMatches matches associated with it. 
+        They will be deleted too. Please confirm that you wish to continue.
+    </p>
+
+    @using (Html.BeginForm("ConfirmSideAndMatchesDelete", "Administrator", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewSides")
+        </div>
+    }
+</div>

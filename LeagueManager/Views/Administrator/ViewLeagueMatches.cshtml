@@ -1,0 +1,18 @@
+﻿@model LeagueManager.Models.ListLeagueMatchesViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Matches in @Model.LeagueName</h2>
+
+<p>
+    @Html.ActionLink("Create New Match", "CreateMatch", new { id = Model.LeagueId })
+</p>
+
+@{Html.RenderPartial("~/Views/Shared/_ViewLeagueMatches.cshtml", Model.ListOfMatches); }
+
+<div>
+    @Html.ActionLink("Back to Leagues", "Index")
+</div>
+

@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>League Manager</h1>
+    <p class="lead">Welcome to League Manager. <br>
+    Here you can create and manage your own Football League.
+    </p>
+    <p>@Html.ActionLink("Learn More", "Guide", "Home", new { @class="btn btn-primary btn-lg" })</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create your own League.</h2>
+        @if (User.Identity.IsAuthenticated != true)
+        {
+            <p>
+                If you want to create and manage your own league first you will need to create an account:
+            </p>
+            <p>
+                @Html.ActionLink("Create an New Account", "Register", "Account")
+            </p>
+            <p>
+                Or login to an existing account:
+            </p>
+            <p>
+                @Html.ActionLink("Login", "Login", "Account")
+            </p>
+        }
+        else
+        {
+            <p>
+                Now you are Logged In you're ready to create a new league:
+            </p>
+            <p>
+                @Html.ActionLink("Create a new League", "CreateLeague", "MyLeagues")
+            </p>
+            <p>
+                Or manage your existing Leagues:
+            </p>
+            <p>
+                @Html.ActionLink("My Leagues", "Index", "MyLeagues")
+            </p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>View Public Leagues</h2>
+        <p>
+            When you create your own League you have the option to make your league Public so everyone can view it.
+        </p>
+        <p>
+            Here you can see the Public leagues that have been created so far:
+        </p>
+        <p>
+            @Html.ActionLink("View Public Leagues", "Index", "PublicLeagues")
+        </p>
+    </div>
+</div>

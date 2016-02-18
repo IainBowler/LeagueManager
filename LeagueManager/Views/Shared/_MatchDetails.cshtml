@@ -1,0 +1,62 @@
+﻿
+@model LeagueManager.Models.Match
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    @Html.HiddenFor(model => model.League.Id)
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("League Match is in")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.League.Name)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Home Team")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Side1.Name)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Goals Scored")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Side1Score)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Away Team")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Side2.Name)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Goals Scored")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Side2Score)
+        </dd>
+    </dl>
+    <hr />
+</div>

@@ -1,0 +1,96 @@
+﻿@model LeagueManager.Models.League
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>League</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Description")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Teams in the League")
+        </dt>
+        <dd>
+            @foreach (LeagueManager.Models.Side s in Model.Members)
+            {
+                <p>
+                    @Html.DisplayFor(modelItem => s.Name)
+                </p>
+            }
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Points for a Win")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointsForAWin)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Points for a Draw")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointsForADraw)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Points for a Loss")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointsForALoss)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Public")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Public)
+        </dd>
+    </dl>
+    @if (HttpContext.Current.User.IsInRole("Admin") == true)
+    {
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Owner")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OwnerName)
+            </dd>
+        </dl>
+    }
+    <hr />
+</div>
+

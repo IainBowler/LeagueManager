@@ -1,0 +1,14 @@
+﻿@model LeagueManager.Models.Side
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@{Html.RenderPartial("~/Views/Shared/_SideDetails.cshtml", Model); }
+
+<p>
+    @Html.ActionLink("Edit", "EditSide", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ViewSides")
+</p>

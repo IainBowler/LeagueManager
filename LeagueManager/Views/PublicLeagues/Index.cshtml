@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LeagueManager.Models.League>
+
+@{
+    ViewBag.Title = "Public Leagues";
+}
+
+<h2>Public Leagues</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("League Title", "League Name")
+        </th>
+        <th>
+            @Html.Label("Description Title", "Description")
+        </th>
+        <th>
+            @Html.Label("Owner Title", "Owner Name")
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "ViewLeagueTable", new { id = item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerName)
+        </td>
+    </tr>
+}
+</table>

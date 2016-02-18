@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LeagueManager.Models.Match>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("League Name")
+        </th>
+        <th>
+            @Html.Label("Home Team")
+        </th>
+        <th>
+            @Html.Label("Score")
+        </th>
+        <th>
+            @Html.Label("Away Team")
+        </th>
+        <th>
+            @Html.Label("Score")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.League.Name, "ViewLeagueTable", new { id = item.League.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Side1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Side1Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Side2.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Side2Score)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditMatch", new { id = item.MatchId }) |
+                @Html.ActionLink("Details", "MatchDetails", new { id = item.MatchId }) |
+                @Html.ActionLink("Delete", "DeleteMatch", new { id = item.MatchId })
+            </td>
+        </tr>
+    }
+
+</table>
+

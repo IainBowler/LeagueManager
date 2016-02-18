@@ -1,0 +1,62 @@
+﻿@model LeagueManager.Models.CreateEditMatchViewModel
+
+
+<div class="form-group">
+    <h4>Match</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdOfLeagueMatchIsIn)
+    @Html.HiddenFor(model => model.IdOfMatch)
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("League Match is in")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LeagueMatchIsIn.Name)
+            @Html.ValidationMessageFor(model => model.LeagueMatchIsIn, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Home Team")
+        </dt>
+        <dd>
+            @Html.DropDownListFor(model => model.SelectedSide1[0], Model.Side1SelectList)
+            @Html.ValidationMessageFor(model => model.MatchToEdit.Side1, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Goals Scored")
+        </dt>
+        <dd>
+            @Html.EditorFor(model => model.MatchToEdit.Side1Score)
+            @Html.ValidationMessageFor(model => model.MatchToEdit.Side1Score, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Away Team")
+        </dt>
+        <dd>
+            @Html.DropDownListFor(model => model.SelectedSide2[0], Model.Side2SelectList)
+            @Html.ValidationMessageFor(model => model.MatchToEdit.Side2, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Goals Scored")
+        </dt>
+        <dd>
+            @Html.EditorFor(model => model.MatchToEdit.Side2Score)
+            @Html.ValidationMessageFor(model => model.MatchToEdit.Side2Score, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+    <hr />
+</div>
+

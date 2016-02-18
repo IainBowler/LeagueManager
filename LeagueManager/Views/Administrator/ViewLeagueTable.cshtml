@@ -1,0 +1,11 @@
+﻿@model LeagueManager.Models.LeagueResults
+
+@{
+    ViewBag.Title = "View League";
+}
+
+@{Html.RenderPartial("~/Views/Shared/_ViewLeagueTable.cshtml", Model); }
+
+<div>
+    @Html.ActionLink("Back to Leagues", "Index")
+</div>

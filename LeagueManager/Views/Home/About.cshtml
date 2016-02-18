@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Welcome to League Manager.";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>
+    League Manager is a project that I started to help me learn asp.net. <br />
+    The project is an MVC 5 Web Application using the 4.5.2 .NET Framework. <br />
+    It is using Individual User Accounts. <br />
+    It is built using a code first approach with the Entity Framework. <br />
+    Created the Side class with scaffolded Create, Details, Edit and Delete Views.<br />
+    Created the League class with scaffolded Create, Details, Edit and Delete Views.<br />
+    Created the Match class with scaffolded Create, Details, Edit and Delete Views.<br />
+    Added data Annotations to League scaffolded Side. <br />
+    Added foreign keys for the Match class with fluent api. <br />
+    Merged all the create, details, edit and delete for the three classes into Administrator controller. <br />
+    Added UserName to register and logon. <br />
+    Created View Models for League, Side and Match to create the data for list boxes. <br />
+    Added confirmation to deleting Sides if they have matches associated with them. <br />
+    Added Test data to DbInitialiser. <br />
+    Put much of what could be reused in the views into partial views. <br />
+    Tidied up appearance of views. <br />
+    Changed the way League editing was done so that Sides are added/removed on a separate page to enable deleting associated matches. <br />
+    Created SideResults and LeagueResults to generate the data needed for a League Table, added League Table View. <br />
+    Created a copy of the Administration controller called MyLeagues (with Views). <br />
+    Added showing of Owner Name if user is Administrator. <br />
+    Created an Admin user with an Admin Role. <br />
+    Added Authorisation to Administrator and MyLeagues controllers. <br />
+    Changed MyLeagues controller so it could only access the current users data. <br />
+    Added Premiership data to DbInitialiser. <br />
+    Added Public Leagues controller to display Leagues that are public. <br />
+    Tidied up front page and navigation. <br />
+    Added Demo User data and created a guide to using the site. <br />
+
+</p>
+
+
+<p>
+    Future Updates will include:
+</p>
+
+<p>
+    Add Date played to Match. <br />
+    Add editing Users to Administrator. <br />
+    Add forgotten Password Functionality. <br />
+    Add Sign on from External Providers. <br />
+    Add bonus points option to League and Match. <br />
+    Allow more than two sides to be included in a match, need new side/match/result class. <br />
+    Add types of League to speed up creation. <br />
+    Improve the way Editing League Members accesses the database. <br />
+</p>

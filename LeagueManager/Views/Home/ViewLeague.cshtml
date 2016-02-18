@@ -1,0 +1,76 @@
+﻿@model LeagueManager.Models.LeagueResults
+
+@{
+    ViewBag.Title = "View League";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Testing Displaying a League.</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Side Title", "Team Name")
+        </th>
+        <th>
+            @Html.Label("Played Title", "Games Played")
+        </th>
+        <th>
+            @Html.Label("Won Title", "Games Won")
+        </th>
+        <th>
+            @Html.Label("Drawn Title", "Games Drawn")
+        </th>
+        <th>
+            @Html.Label("Lost Title", "Games Lost")
+        </th>
+        <th>
+            @Html.Label("For Title", "Goals For")
+        </th>
+        <th>
+            @Html.Label("Against Title", "Goals Against")
+        </th>
+        <th>
+            @Html.Label("Difference Title", "Goal Difference")
+        </th>
+        <th>
+            @Html.Label("Points Title", "Points")
+        </th>
+
+    </tr>
+
+    @foreach (LeagueManager.Models.SideResults item in Model.Results)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SideName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesWon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesDrawn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesLost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreAgainst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalScoreDifference)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+        </tr>
+    }
+
+</table>

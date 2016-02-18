@@ -1,0 +1,42 @@
+﻿@model LeagueManager.Models.Side
+
+<div>
+    <h4>Side</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Leagues Team is in")
+        </dt>
+        <dd>
+            @foreach (LeagueManager.Models.League league in Model.LeaguesIn)
+            {
+                <p>
+                    @Html.DisplayFor(modelItem => league.Name)
+                </p>
+            }
+        </dd>
+    </dl>
+    @if (HttpContext.Current.User.IsInRole("Admin") == true)
+    {
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Owner")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OwnerName)
+            </dd>
+        </dl>
+    }
+    <hr />
+</div>

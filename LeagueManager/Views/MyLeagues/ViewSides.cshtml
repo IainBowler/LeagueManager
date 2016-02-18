@@ -1,0 +1,14 @@
+﻿@model IEnumerable<LeagueManager.Models.Side>
+
+@{
+    ViewBag.Title = "My Sides";
+}
+
+<h2>My Sides</h2>
+
+@{ Html.RenderPartial("~/Views/Shared/_ViewSides.cshtml", Model);}
+
+<div>
+    @Html.ActionLink("Back to My Leagues", "Index")
+</div>
+
