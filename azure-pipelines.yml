@@ -37,4 +37,4 @@ steps:
   inputs:
     azureSubscription: 'WebRota App Service'
     appName: 'webRota'
-    package: $(System.DefaultWorkingDirectory)/**/*.zip   
+    package: $(build.artifactStagingDirectory)/**/*.zip   
